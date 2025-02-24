@@ -33,7 +33,6 @@ bash run_train.sh
 ```
 The script_Neo.py can generate for all 4 training-strategy **[SFT, LoRA, KD, Neo]** once time, the yaml will be generated to examples/train_neo and you can modify them manually.
 
-Follow the guideline propused by LLM-Neo paper, we set lr' = 10 $\times$ lr for LoRA and Neo automatically, please pay attention and it can be changed in your way.
 
 ### Advanced usage:
 ```
@@ -47,7 +46,24 @@ python3 script_Neo.py --run lora neo --lora_rank 32 --base_model meta-llama/Meta
 python3 script_Neo.py --run kd neo --base_model meta-llama/Meta-Llama-3-8B-Instruct --teacher_model_name_or_path deepseek-ai/DeepSeek-R1-Distill-Llama-8B 
 ```
 
-LLM-Neo is the combination of LoRA and KD, which is not originally supported by LLaMA-Factory.
+### DIY yours:
+
+Follow the guideline propused by LLM-Neo paper, we set lr' = 10 $\times$ lr for LoRA and Neo automatically, please pay attention and it can be changed in your way.
+
+LLM-Neo is the combination of LoRA and KD, while KD is not originally supported by LLaMA-Factory.
 
 We add the teacher_model and kd_ratio parameters in src/llamafactory/hparams/finetuning_args and src/llamafactory/train/sft/trainer, which is easy to extend to other methods when you DIY.
 
+
+## ☕️ Citation
+
+If you find this repository helpful, please consider citing our paper:
+
+```
+@article{yang2024llm,
+  title={Llm-neo: Parameter efficient knowledge distillation for large language models},
+  author={Yang, Runming and Wu, Taiqiang and Wang, Jiahao and Hu, Pengfei and Wong, Ngai and Yang, Yujiu},
+  journal={arXiv preprint arXiv:2411.06839},
+  year={2024}
+}
+```
