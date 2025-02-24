@@ -31,7 +31,7 @@ pip install -e ".[torch,metrics]"
 python3 script_Neo.py
 bash run_train.sh
 ```
-The `script_Neo.py` can generate for all 4 training-strategy `[SFT, LoRA, KD, Neo]` once time, the `yaml` will be generated to `examples/train_neo` and you can modify them manually.
+The `script_Neo.py` can generate all 4 training-strategy `yaml` once time, you can use `--run` to choose from `[SFT, LoRA, KD, Neo] `, the settings will be generated to `examples/train_neo` and you can modify them manually.
 
 
 ### Advanced usage:
@@ -52,7 +52,7 @@ Follow the guideline propused by LLM-Neo paper, we set `lr' = 10 * lr` for LoRA 
 #### Knowledge Distillation
 LLM-Neo is the combination of LoRA and KD, while KD is not originally supported by LLaMA-Factory.
 
-We add the `teacher_model` and `kd_ratio` parameters in `src/llamafactory/hparams/finetuning_args` and `src/llamafactory/train/sft/trainer`, which is easy to extend to other methods when you DIY.
+We add the `teacher_model` and `--kd_ratio` parameters in `src/llamafactory/hparams/finetuning_args` and `src/llamafactory/train/sft/trainer`, which is easy to extend to other methods when you DIY.
 
 
 ## ☕️ Citation
