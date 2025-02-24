@@ -52,7 +52,7 @@ Follow the guideline propused by LLM-Neo paper, we set `lr' = 10 * lr` for LoRA 
 #### Knowledge Distillation
 LLM-Neo is the combination of LoRA and KD, while KD is not originally supported by LLaMA-Factory.
 
-We add the `teacher_model` and `--kd_ratio` parameters in `src/llamafactory/hparams/finetuning_args` and `src/llamafactory/train/sft/trainer`, which is easy to extend to other methods when you DIY.
+We add the `--teacher_model` and `--kd_ratio` parameters in `src/llamafactory/hparams/finetuning_args` and `src/llamafactory/train/sft/trainer`, which is easy to extend to other methods when you DIY.
 
 
 ## ☕️ Citation
