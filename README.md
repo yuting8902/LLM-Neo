@@ -31,7 +31,7 @@ pip install -e ".[torch,metrics]"
 python3 script_Neo.py
 bash run_train.sh
 ```
-The script_Neo.py can generate for all 4 training-strategy **[SFT, LoRA, KD, Neo]** once time, the yaml will be generated to examples/train_neo and you can modify them manually.
+The `script_Neo.py` can generate for all 4 training-strategy `[SFT, LoRA, KD, Neo]` once time, the `yaml` will be generated to `examples/train_neo` and you can modify them manually.
 
 
 ### Advanced usage:
@@ -46,13 +46,13 @@ python3 script_Neo.py --run lora neo --lora_rank 32 --base_model meta-llama/Meta
 python3 script_Neo.py --run kd neo --base_model meta-llama/Meta-Llama-3-8B-Instruct --teacher_model_name_or_path deepseek-ai/DeepSeek-R1-Distill-Llama-8B 
 ```
 
-### DIY yours:
+#### Learning Rate
+Follow the guideline propused by LLM-Neo paper, we set `lr' = 10 * lr` for LoRA and Neo automatically, please pay attention and it can be changed in your way.
 
-Follow the guideline propused by LLM-Neo paper, we set lr' = 10 $\times$ lr for LoRA and Neo automatically, please pay attention and it can be changed in your way.
-
+#### Knowledge Distillation
 LLM-Neo is the combination of LoRA and KD, while KD is not originally supported by LLaMA-Factory.
 
-We add the teacher_model and kd_ratio parameters in src/llamafactory/hparams/finetuning_args and src/llamafactory/train/sft/trainer, which is easy to extend to other methods when you DIY.
+We add the `teacher_model` and `kd_ratio` parameters in `src/llamafactory/hparams/finetuning_args` and `src/llamafactory/train/sft/trainer`, which is easy to extend to other methods when you DIY.
 
 
 ## ☕️ Citation
