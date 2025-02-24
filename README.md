@@ -31,7 +31,7 @@ pip install -e ".[torch,metrics]"
 python3 script_Neo.py
 bash run_train.sh
 ```
-The `script_Neo.py` can generate all 4 training-strategy `yaml` once time, you can use `--run` to choose from `[SFT, LoRA, KD, Neo]`, the settings will be generated to `examples/train_neo` and you can modify them manually.
+The `script_Neo.py` can generate all `4 training-strategy yaml` once time, you can use `--run` to choose from `[SFT, LoRA, KD, Neo]`, the settings will be generated to `examples/train_neo` and you can modify them manually.
 
 
 ### Advanced usage:
