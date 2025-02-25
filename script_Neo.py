@@ -34,7 +34,7 @@ def generate_config(args, config_type, train_template, merge_template):
         "stage": "sft",
         "ft_type": "lora" if is_lora else "full",
         "lora_config": lora_config,
-        "dataset": "identity,alpaca_en_demo",
+        "dataset": "BAAI-Infinity-Instruct-0625",
         "template": args.template,
         "cutoff_len": args.cutoff_len,
         "max_samples": args.max_samples,
@@ -45,7 +45,7 @@ def generate_config(args, config_type, train_template, merge_template):
         "plot_loss": str(args.plot_loss).lower(),
         "batch_size": args.batch_size,
         "grad_accum": args.grad_accum,
-        "lr": args.base_lr * (10 if is_lora else 1),
+        "lr": "{:.1e}".format(args.base_lr * (10 if is_lora else 1)),
         "epochs": args.epochs,
         "kd_config": kd_config
     }
@@ -73,9 +73,9 @@ def main():
     parser = argparse.ArgumentParser(description='Generate training configs')
     # 添加所有必要的参数
     parser.add_argument('--model_family', default='llama3', help='Base model family name')
-    parser.add_argument('--model_size', default='8b', help='Model size variant')
-    parser.add_argument('--base_model', default='meta-llama/Meta-Llama-3-8B-Instruct', help='HF model or local path')
-    parser.add_argument('--teacher_model_name_or_path', default='deepseek-ai/DeepSeek-R1-Distill-Llama-8B', help='Teacher model path can be empty or commented out')
+    parser.add_argument('--model_size', default='1b', help='Model size variant')
+    parser.add_argument('--base_model', default='/apdcephfs_qy3/share_301069248/users/rummyyang/minillm/checkpoints/llama3.2/Llama-3.2-1B', help='HF model or local path')
+    parser.add_argument('--teacher_model_name_or_path', default='/apdcephfs_qy3/share_301069248/users/rummyyang/minillm/checkpoints/DeepSeek-R1-Distill-Llama-8B', help='Teacher model path can be empty or commented out')
     parser.add_argument('--base_lr', type=float, default=2e-5, help='Base learning rate')
     parser.add_argument('--epochs', type=float, default=1.0, help='Training epochs')
     parser.add_argument('--batch_size', type=int, default=1, help='Batch size per device')
