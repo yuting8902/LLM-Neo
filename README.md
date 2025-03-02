@@ -16,7 +16,7 @@ There is an <a href="https://zhuanlan.zhihu.com/p/8642629256" target="_blank"> e
 
 ## Quick start
 
-Our code is basiclly build on  <a href="https://github.com/hiyouga/LLaMA-Factory" target="_blank">LLaMA-Factory</a>, which is a wonderful project and you can find everything you wonder there, thanks for their solid and easy-to-use framework!
+Our code is basiclly build on  <a href="https://github.com/hiyouga/LLaMA-Factory" target="_blank">LLaMA-Factory</a>, which is a tremendous project and you can find everything you wonder there, thanks for their great framwork and nice code!
 
 
 ### Environment:
