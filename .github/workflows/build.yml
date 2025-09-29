@@ -1,8 +1,8 @@
 name: Build & Push Docker (GHCR)
 
 on:
-  workflow_dispatch:    # 可手動觸發
-  push:                 # 之後只要你 push，就會自動重建
+  workflow_dispatch:    
+  push:                 
     branches: [ master, main ]
     paths:
       - 'docker/**'
