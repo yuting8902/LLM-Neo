@@ -1,8 +1,8 @@
 name: Build & Push Docker (GHCR)
 
 on:
-  workflow_dispatch:    
-  push:                 
+  workflow_dispatch:
+  push:
     branches: [ master, main ]
     paths:
       - 'docker/**'
@@ -12,17 +12,19 @@ on:
       - 'setup.py'
 
 env:
-  IMAGE_NAME: llm-neo       
-  DOCKERFILE_PATH: docker/docker-cuda/Dockerfile  
-  
+  IMAGE_NAME: llm-neo
+  DOCKERFILE_PATH: docker/docker-cuda/Dockerfile
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write        
+      packages: write
     steps:
       - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
 
       - name: Login to GHCR
         uses: docker/login-action@v3
@@ -47,5 +49,3 @@ jobs:
           tags: |
             ${{ steps.tags.outputs.LATEST }}
             ${{ steps.tags.outputs.SHA }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
